@@ -27,8 +27,16 @@ function   initTabs() {
         screen: 'example.Transitions',
         icon: require('../img/transform.png'),
         title: 'Navigation Transitions',
-      }
-      ,
+    },
+
+    {
+        label: '运单',
+        screen: 'app.Trnasorders.index',
+        icon: require('../img/transform.png'),
+        title: '运单列表',
+    },
+
+ 
 
       {
         label: 'Profile',
@@ -64,7 +72,8 @@ function setupTabs(apptabs){
     navBarBackgroundColor: '#003a66',
     statusBarColor: '#002b4c',
     tabFontFamily: 'BioRhyme-Bold',
-    
+    forceTitlesDisplay: true
+
   }
   ,
 

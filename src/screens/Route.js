@@ -42,7 +42,8 @@ import MasonryItem from './transitions/sharedElementTransitions/Masonry/Item';
 
 import Login from './auth/Login';
  
-  
+import Trnasorders  from './transorders/Trnasorders';
+
  
    function   checkAuth(flag,fun) {
    
@@ -86,6 +87,11 @@ export function registerScreens(logedflag){
   Navigation.registerComponent('example.Transitions.SharedElementTransitions.Masonry', () => Masonry);
   Navigation.registerComponent('example.Transitions.SharedElementTransitions.Masonry.Item', () => MasonryItem);
   Navigation.registerComponent('app.Profile.Login', () => Login);
+
+
+  Navigation.registerComponent('app.Trnasorders.index', () => Trnasorders);
+
+ 
 
 
 }
