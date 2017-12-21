@@ -2,11 +2,14 @@ import {Platform,  ActivityIndicatorIOS, AsyncStorage} from 'react-native';
 import {Navigation} from 'react-native-navigation';
 import {registerScreens, registerScreenVisibilityListener} from './screens/Route';
 
+import { Icon } from 'react-native-elements';
+
+
 console.ignoredYellowBox =['Remote debugger'];
 XMLHttpRequest = GLOBAL.originalXMLHttpRequest ? GLOBAL.originalXMLHttpRequest : GLOBAL.XMLHttpRequest;
 
 
-
+//<Icon name='rowing' />
 
 function   initTabs() {
     var apptabs = [{
@@ -31,7 +34,7 @@ function   initTabs() {
 
     {
         label: '运单',
-        screen: 'app.Trnasorders.index',
+        screen: 'app.Transorders.index',
         icon: require('../img/transform.png'),
         title: '运单列表',
     },
@@ -93,12 +96,12 @@ AsyncStorage.getItem("access_token")
       {
         
          if(token){
-                                  console.log('已经登录')
-                                  return 1
-                            }else{
-                                  console.log('没有登录')
-                                  return 0 
-                            }
+                    console.log('已经登录')
+                    return 1
+                  }else{
+                    console.log('没有登录')
+                    return 0 
+                  }
       }
 )
 .then( (flag) =>

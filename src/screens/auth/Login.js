@@ -1,9 +1,11 @@
+ 
+ 
+
 import React, {Component} from 'react';
 import {
   StyleSheet, 
   View, 
   Text, 
-  Button, 
   Alert, 
   TextInput,
   TouchableHighlight,
@@ -12,7 +14,11 @@ import {
 } from 'react-native';
 
 
+
+import {Icon,Divider, Button,FormLabel,FormInput } from 'react-native-elements';
+ 
 import * as AppConstClass from '../../config/constants';
+
 
 const ACCESS_TOKEN = AppConstClass.ACCESS_TOKEN;
 
@@ -128,25 +134,26 @@ class Login extends Component {
   render() {
      return (
       <View style={styles.container}>
-        <Text style={styles.heading}>
-          Native on Rails
-        </Text>
-        <TextInput
-          onChangeText={ (text)=> this.setState({email: text}) }
-          style={styles.input} placeholder="Email">
-        </TextInput>
-        <TextInput
-          onChangeText={ (text)=> this.setState({password: text}) }
-          style={styles.input}
-          placeholder="Password"
-          secureTextEntry={true}>
-        </TextInput>
-        <TouchableHighlight onPress={this.onLoginPressed.bind(this)} style={styles.button}>
-          <Text style={styles.buttonText}>
-            Login
-          </Text>
-        </TouchableHighlight>
 
+
+
+        <FormLabel>Name</FormLabel>
+        <FormInput   underlineColorAndroid="#112233"      onChangeText={ (text)=> this.setState({email: text})} />
+
+        <FormLabel>Password</FormLabel>
+
+ 
+
+        <FormInput    underlineColorAndroid="#223344"      onChangeText={ (text)=> this.setState({password: text}) } />
+         <Button
+          raised
+          icon={{name: 'home', size: 16}}
+          buttonStyle={{backgroundColor: 'red', borderRadius: 10}}
+          onPress={this.onLoginPressed.bind(this)}
+          textStyle={{textAlign: 'center'}}
+          title={`Welcome to`}
+        />
+ 
         <Text style={styles.error}>
           {this.state.msg}
         </Text>
@@ -157,49 +164,16 @@ class Login extends Component {
   }
 }
 
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    alignItems: 'flex-start',
     justifyContent: 'flex-start',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-    padding: 10,
-    paddingTop: 80
-  },
-  input: {
-    height: 50,
-    width:200,
-    marginTop: 10,
-    padding: 4,
-    fontSize: 18,
-    borderWidth: 1,
-    borderColor: '#48bbec'
-  },
-  button: {
-    height: 50,
-    backgroundColor: '#48BBEC',
-    alignSelf: 'stretch',
-    marginTop: 10,
-    justifyContent: 'center'
-  },
-  buttonText: {
-    fontSize: 22,
-    color: '#FFF',
-    alignSelf: 'center'
-  },
-  heading: {
-    fontSize: 30,
-  },
-  error: {
-    color: 'red',
-    paddingTop: 10
-  },
-  success: {
-    color: 'green',
-    paddingTop: 10
-  },
-  loader: {
-    marginTop: 20
+    paddingTop: 10,
+    backgroundColor: '#ecf0f1',
   }
 });
+
+ 
 export default Login;

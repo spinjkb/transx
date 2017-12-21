@@ -14,7 +14,7 @@ import Types from './NavigationTypes';
 import Actions from './Actions';
 
 import Transitions from './Transitions';
-import Profile  from './Profile';
+import Profile  from './profile/Profile';
 
 
 import Push from './types/Push';
@@ -42,7 +42,7 @@ import MasonryItem from './transitions/sharedElementTransitions/Masonry/Item';
 
 import Login from './auth/Login';
  
-import Trnasorders  from './transorders/Trnasorders';
+import Transorders  from './transorders/Transorders';
 
  
    function   checkAuth(flag,fun) {
@@ -89,7 +89,7 @@ export function registerScreens(logedflag){
   Navigation.registerComponent('app.Profile.Login', () => Login);
 
 
-  Navigation.registerComponent('app.Trnasorders.index', () => Trnasorders);
+  Navigation.registerComponent('app.Transorders.index', () => Transorders);
 
  
 

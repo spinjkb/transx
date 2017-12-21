@@ -12,7 +12,7 @@ import   {
 } from 'react-native';
 
 
-import * as AppConstClass from '../config/constants';
+import * as AppConstClass from '../../config/constants';
  
 
 const ACCESS_TOKEN = AppConstClass.ACCESS_TOKEN;
@@ -75,8 +75,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
     padding: 10,
-    paddingTop: 180
+    paddingTop: 80
   },
+
   button: {
     height: 50,
     backgroundColor: '#48BBEC',
@@ -85,11 +86,13 @@ const styles = StyleSheet.create({
     marginTop: 10,
     justifyContent: 'center'
   },
+  
   buttonText: {
     fontSize: 22,
     color: '#FFF',
     alignSelf: 'center'
   },
+  
   title: {
     fontSize: 25,
     marginBottom: 15
