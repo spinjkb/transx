@@ -57,7 +57,7 @@ class Profile extends React.Component {
        
 
         <TouchableHighlight onPress= { this.onLogout.bind(this) }  style={styles.button}>
-          <Text style={styles.buttonText}>xLogout</Text>
+          <Text style={styles.buttonText}>Logout?</Text>
         </TouchableHighlight>
       
 

@@ -9,8 +9,7 @@ console.ignoredYellowBox =['Remote debugger'];
 XMLHttpRequest = GLOBAL.originalXMLHttpRequest ? GLOBAL.originalXMLHttpRequest : GLOBAL.XMLHttpRequest;
 
 
-//<Icon name='rowing' />
-
+ 
 function   initTabs() {
     var apptabs = [{
       label: 'Navigation',
@@ -33,7 +32,7 @@ function   initTabs() {
     },
 
     {
-        label: '运单',
+        label: '运单2',
         screen: 'app.Transorders.index',
         icon: require('../img/transform.png'),
         title: '运单列表',

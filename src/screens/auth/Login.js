@@ -17,6 +17,10 @@ import {
 
 import {Icon,Divider, Button,FormLabel,FormInput } from 'react-native-elements';
  
+
+import {registerScreens, registerScreenVisibilityListener} from '../Route';
+
+
 import * as AppConstClass from '../../config/constants';
 
 
@@ -26,16 +30,30 @@ const API_ROOT= AppConstClass.API_ROOT;
 
 class Login extends Component {
 
+
   constructor(props) {
     super(props);
+    
+    console.log(this.props)
+    //this.tsf() 
+    
+    // this.cbpush() 
+    
     this.state = {
       email: "",
       password: "",
       msg: "",
+      callback:'',
       showProgress: false,
     };
 
     this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
+  }
+
+  
+  cbpush(){
+   
+    return null;
   }
 
   onNavigatorEvent(event) {
@@ -89,26 +107,12 @@ class Login extends Component {
           this.setState({msg: res.msg});
           
           if(retcode ==0 ){
+              Alert.alert( 'Alert Title','success' + accessToken)
 
-             let accessToken = res.access_token;
-             this.storeToken(accessToken);
-
-             storage.save({
-                key: 'loginState',   // Note: Do not use underscore("_") in key!
-                data: { 
-                  from: 'some other site',
-                  userid: 'some userid',
-                  token: accessToken
-                },
-                
-                // if not specified, the defaultExpires will be applied instead.
-                // if set to null, then it will never expire.
-                expires: 1000 * 3600
-              });
+              registerScreens(1)
+              let accessToken = res.access_token;
+              this.storeToken(accessToken);
  
-
-
-             Alert.alert( 'Alert Title','success' + accessToken)
           }
           // else
           // {  
@@ -137,12 +141,9 @@ class Login extends Component {
 
 
 
-        <FormLabel>Name</FormLabel>
+        <FormLabel>手机号</FormLabel>
         <FormInput   underlineColorAndroid="#112233"      onChangeText={ (text)=> this.setState({email: text})} />
-
-        <FormLabel>Password</FormLabel>
-
- 
+        <FormLabel>密码</FormLabel>
 
         <FormInput    underlineColorAndroid="#223344"      onChangeText={ (text)=> this.setState({password: text}) } />
          <Button
@@ -151,12 +152,14 @@ class Login extends Component {
           buttonStyle={{backgroundColor: 'red', borderRadius: 10}}
           onPress={this.onLoginPressed.bind(this)}
           textStyle={{textAlign: 'center'}}
-          title={`Welcome to`}
+          title={`登录`}
         />
  
-        <Text style={styles.error}>
+        
+          <FormLabel>
           {this.state.msg}
-        </Text>
+          </FormLabel>
+      
 
     
       </View>

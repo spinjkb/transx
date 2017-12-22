@@ -43,14 +43,36 @@ import MasonryItem from './transitions/sharedElementTransitions/Masonry/Item';
 import Login from './auth/Login';
  
 import Transorders  from './transorders/Transorders';
+import Blank        from './transorders/Blank';
 
  
    function   checkAuth(flag,fun) {
-   
+      
+       console.log(flag)
        if(flag ==1){
            return fun
        }else{
-           return () => Login
+
+
+
+            Login.prototype.tsf=function(){
+              console.log('function setted from route')
+            }
+
+            // Login.tsf()
+            // let magicn=8964
+            let  redirectfun= () => { 
+                
+                 Login.prototype.cbpush=function(){
+                      return fun
+                 }
+
+                 return  Login
+                }
+
+           console.log('--------------------------------') 
+           return redirectfun
+        // return {<Login />}
        }
    }
 
@@ -86,10 +108,11 @@ export function registerScreens(logedflag){
   Navigation.registerComponent('example.Transitions.SharedElementTransitions.Cards.Info', () => CardsInfo);
   Navigation.registerComponent('example.Transitions.SharedElementTransitions.Masonry', () => Masonry);
   Navigation.registerComponent('example.Transitions.SharedElementTransitions.Masonry.Item', () => MasonryItem);
-  Navigation.registerComponent('app.Profile.Login', () => Login);
+  // Navigation.registerComponent('app.Profile.Login', () => Login);
 
 
   Navigation.registerComponent('app.Transorders.index', () => Transorders);
+  Navigation.registerComponent('app.Transorders.blank', () => Blank);
 
  
 

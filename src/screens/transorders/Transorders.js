@@ -17,7 +17,7 @@ class Transorders extends Component {
   }
 
   componentDidMount() {
-    this.makeRemoteRequest();
+     this.makeRemoteRequest();
   }
 
   makeRemoteRequest = () => {
