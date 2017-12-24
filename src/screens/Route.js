@@ -10,13 +10,13 @@ import {
 import Storage from 'react-native-storage';
 
 
-import Types from './NavigationTypes';
-import Actions from './Actions';
+import Types from './types/NavigationTypes';
+import Actions from './actions/Actions';
 
-import Transitions from './Transitions';
+import Transitions from './transitions/Transitions';
 import Profile  from './profile/Profile';
 
-
+ 
 import Push from './types/Push';
 import Drawer from './types/Drawer';
 import ListScreen from './types/ListScreen';

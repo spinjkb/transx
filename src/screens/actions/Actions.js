@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet, ScrollView } from 'react-native';
-import Row from '../components/Row';
+import { Image,StyleSheet, ScrollView } from 'react-native';
+import Row from '../../components/Row';
 
 class Actions extends React.Component {
 
@@ -80,10 +80,10 @@ class Actions extends React.Component {
       this.props.navigator.showContextualMenu({
         rightButtons: [{
           title: 'Edit',
-          icon: require('../../img/edit.png'),
+          icon: require('../../../img/edit.png'),
         }, {
           title: 'Delete',
-          icon: require('../../img/delete.png'),
+          icon: require('../../../img/delete.png'),
         }],
         onButtonPressed: (index) => console.log(`Button ${index} tapped`)
       });
@@ -124,19 +124,19 @@ class Actions extends React.Component {
       this.props.navigator.setButtons({
         fab: {
           collapsedId: 'share',
-          collapsedIcon: require('../../img/edit@1x.png'),
+          collapsedIcon: require('../../../img/edit.png') ,
           expendedId: 'clear',
-          expendedIcon: require('../../img/edit@1x.png'),
+          expendedIcon: require('../../../img/edit.png'),
           backgroundColor: '#ff505c',
           actions: [
             {
               id: 'mail',
-              icon: require('../../img/edit@1x.png'),
+              icon: require('../../../img/edit.png'),
               backgroundColor: '#03A9F4'
             },
             {
               id: 'delete',
-              icon: require('../../img/delete@1x.png'),
+              icon: require('../../../img/delete.png'),
               backgroundColor: '#4CAF50'
             }
           ]
@@ -150,6 +150,8 @@ class Actions extends React.Component {
   render() {
     return (
       <ScrollView style={styles.container}>
+
+
         <Row title={'Set Title'} onPress={this.setTitle} />
         <Row title={'Set Subtitle'} onPress={this.setSubtitle} />
         <Row title={'Toggle Tabs'} onPress={this.toggleTabs} />
