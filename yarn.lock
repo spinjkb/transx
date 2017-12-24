@@ -2744,6 +2744,12 @@ react-native-animatable@^1.1.0:
   dependencies:
     prop-types "^15.5.10"
 
+react-native-camera@^0.12.0:
+  version "0.12.0"
+  resolved "http://registry.npm.taobao.org/react-native-camera/download/react-native-camera-0.12.0.tgz#51afa8acf1696d9d973074b6454c5ba2cce6ac18"
+  dependencies:
+    prop-types "^15.5.10"
+
 react-native-elements@^0.11.0:
   version "0.11.2"
   resolved "http://registry.npm.taobao.org/react-native-elements/download/react-native-elements-0.11.2.tgz#441b26d1a3102eb11abd0dbf24e291b3eb630e56"
@@ -2756,6 +2762,10 @@ react-native-navigation@^1.1.311:
   resolved "http://registry.npm.taobao.org/react-native-navigation/download/react-native-navigation-1.1.311.tgz#4892af13bdd111dc92424ec4e268ba8180ac1839"
   dependencies:
     lodash "4.x.x"
+
+react-native-permissions@^1.0.6:
+  version "1.0.6"
+  resolved "http://registry.npm.taobao.org/react-native-permissions/download/react-native-permissions-1.0.6.tgz#504f01728191431ad4b82895c4a349981fb5802b"
 
 react-native-side-menu@^0.20.1:
   version "0.20.3"

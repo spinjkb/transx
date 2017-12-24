@@ -1,182 +1,136 @@
- 
- 
-
-import React, {Component} from 'react';
+'use strict';
+import React, { Component } from 'react';
 import {
-  StyleSheet, 
-  View, 
-  Text, 
-  Alert, 
-  TextInput,
+  AppRegistry,
+  Dimensions,
+  StyleSheet,
+  Text,
   TouchableHighlight,
-  ActivityIndicatorIOS,
-  AsyncStorage
+  View
 } from 'react-native';
 
+import Camera from 'react-native-camera';
 
 
-import {Icon,Divider, Button,FormLabel,FormInput } from 'react-native-elements';
  
 
-import {registerScreens, registerScreenVisibilityListener} from '../Route';
+import { PermissionsAndroid } from 'react-native';
 
 
-import * as AppConstClass from '../../config/constants';
-
-
-const ACCESS_TOKEN = AppConstClass.ACCESS_TOKEN;
-
-const API_ROOT= AppConstClass.API_ROOT;
+console.log('edit in chroem')
 
 class Login extends Component {
-
-
-  constructor(props) {
-    super(props);
-    
-    console.log(this.props)
-    //this.tsf() 
-    
-    // this.cbpush() 
-    
-    this.state = {
-      email: "",
-      password: "",
-      msg: "",
-      callback:'',
-      showProgress: false,
-    };
-
-    this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
-  }
-
-  
-  cbpush(){
-   
-    return null;
-  }
-
-  onNavigatorEvent(event) {
-    if (event.type === 'PreviewActionPress') {
-      if (event.id === 'action-cancel') {
-        Alert.alert('Cancelled');
-      }
-      if (event.id === 'action-delete-sure') {
-        Alert.alert('Deleted');
-      }
-    }
-  }
-  
-    storeToken(responseData){
-    AsyncStorage.setItem(ACCESS_TOKEN, responseData, (err)=> {
-      if(err){
-        console.log("an error");
-        throw err;
-      }
-      console.log("success");
-    }).catch((err)=> {
-        console.log("error is: " + err);
-    });
-  }
-
-  async onLoginPressed() {
-    this.setState({showProgress: true})
-    try {
-      let response = await fetch(API_ROOT+ 'transorder/login', {
-                              method: 'POST',
-                              headers: {
-                                'Accept': 'application/json',
-                                'Content-Type': 'application/json',
-                              },
-                              body: JSON.stringify(
-                              {
-                                  email: this.state.email,
-                                  password: this.state.password,
-                              })
-                            });
-
-
-       
-      
-      if (response.status == 200 ) {
-
-          let res = await response.json();
-          console.log(res);
-          //Handle success
-          let retcode=res.code;
-          this.setState({msg: res.msg});
-          
-          if(retcode ==0 ){
-              Alert.alert( 'Alert Title','success' + accessToken)
-
-              registerScreens(1)
-              let accessToken = res.access_token;
-              this.storeToken(accessToken);
- 
-          }
-          // else
-          // {  
-             
-          // }
-           
-          // this.redirect('home');
-      } else {
-          //Handle error
-          let error = response.status;
-          throw error;
-      }
-    } catch(error) {
-        this.setState({msg: error});
-        console.log("error " + error);
-        this.setState({showProgress: false});
-    }
-  }
-  
-
-  
-  
   render() {
-     return (
+    return (
       <View style={styles.container}>
 
+       {/*<Text style={styles.capture} onPress={this.requestCameraPermission.bind(this)}>[ask]</Text>*/}
 
 
-        <FormLabel>手机号</FormLabel>
-        <FormInput   underlineColorAndroid="#112233"      onChangeText={ (text)=> this.setState({email: text})} />
-        <FormLabel>密码</FormLabel>
 
-        <FormInput    underlineColorAndroid="#223344"      onChangeText={ (text)=> this.setState({password: text}) } />
-         <Button
-          raised
-          icon={{name: 'home', size: 16}}
-          buttonStyle={{backgroundColor: 'red', borderRadius: 10}}
-          onPress={this.onLoginPressed.bind(this)}
-          textStyle={{textAlign: 'center'}}
-          title={`登录`}
-        />
- 
-        
-          <FormLabel>
-          {this.state.msg}
-          </FormLabel>
-      
 
-    
+
+       <Camera
+          ref={(cam) => {
+            this.camera = cam;
+          }}
+    onBarCodeRead={this.onBarCodeRead.bind(this)}
+          style={styles.preview}
+          aspect={Camera.constants.Aspect.fill}>
+          <Text style={styles.capture} onPress={this.takePicture.bind(this)}>[CAPTURE]</Text>
+        </Camera>
+
+
+   
       </View>
     );
+  }
+
+  onBarCodeRead(e) {
+    console.log(
+        "Barcode Found!",
+        "Type: " + e.type + "\nData: " + e.data
+    );
+  }
+
+
+  
+ async   requestCameraPermission() {
+  try {
+    const granted = await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.CAMERA,
+      {
+        'title': 'Cool Photo App Camera Permission',
+        'message': 'Cool Photo App needs access to your camera ' +
+                   'so you can take awesome pictures.'
+      }
+    )
+    if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+      console.log("You can use the camera")
+    } else {
+      console.log("Camera permission denied")
+    }
+  } catch (err) {
+    console.warn(err)
   }
 }
 
 
+  async takePicture() {
+
+
+    try {
+
+
+
+    const granted = await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.CAMERA,
+      {
+        'title': 'Cool Photo App Camera Permission',
+        'message': 'Cool Photo App needs access to your camera ' +
+                   'so you can take awesome pictures.'
+      }
+    )
+    
+    if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+      console.log("You can use the camera")
+
+      const options = {};
+    //options.location = ...
+       this.camera.capture({metadata: options}).then((data) => console.log(data)).catch(err => console.error(err));
+
+
+    } else {
+      console.log("Camera permission denied")
+    }
+  } catch (err) {
+    console.warn(err)
+  }
+
+  }
+
+}
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'flex-start',
-    justifyContent: 'flex-start',
-    paddingTop: 10,
-    backgroundColor: '#ecf0f1',
+    flexDirection: 'row',
+  },
+  preview: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    alignItems: 'center'
+  },
+  capture: {
+    flex: 0,
+    backgroundColor: '#fff',
+    borderRadius: 5,
+    color: '#000',
+    padding: 10,
+    margin: 40
   }
 });
 
- 
+
+
 export default Login;
