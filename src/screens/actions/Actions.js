@@ -95,11 +95,11 @@ class Actions extends React.Component {
 
   };
 
-  setButtons = () => {
+  setRightButtons = () => {
     let title = '';
 
     if (!this._rightButton) {
-      title = 'Hello';
+      title = 'Helloright';
     } else if (this._rightButton === 'Hello') {
       title = 'Its Me';
     }
@@ -160,7 +160,7 @@ class Actions extends React.Component {
         <Row title={'Toggle Nav Bar'} onPress={this.toggleNavBar} />
         <Row title={'Show Snackbar'} onPress={this.showSnackbar} platform={'android'} />
         <Row title={'Toggle Contextual Menu'} onPress={this.toggleContextualMenu} platform={'android'} />
-        <Row title={'Set Right Buttons'} onPress={this.setButtons} />
+        <Row title={'Set_right Buttons'} onPress={this.setRightButtons} />
         <Row title={'Toggle FAB'} onPress={this.toggleFAB} platform={'android'} />
       </ScrollView>
     );

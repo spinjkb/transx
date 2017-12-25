@@ -1,8 +1,17 @@
+
+
+import React from 'react';
+
 import {Platform,  ActivityIndicatorIOS, AsyncStorage} from 'react-native';
 import {Navigation} from 'react-native-navigation';
 import {registerScreens, registerScreenVisibilityListener} from './screens/Route';
 
 import { Icon } from 'react-native-elements';
+
+ 
+ 
+
+
 
 
 console.ignoredYellowBox =['Remote debugger'];
@@ -10,6 +19,9 @@ XMLHttpRequest = GLOBAL.originalXMLHttpRequest ? GLOBAL.originalXMLHttpRequest :
 
 
  
+
+// DevMenu.show();
+
 function   initNavitems() {
     var items = [{
       label: 'Navigation',
@@ -24,11 +36,12 @@ function   initNavitems() {
       icon: require('../img/swap.png'),
       title: 'Navigation Actions',
     },
+
     {
-        label: '运单扫码',
-        screen: 'example.Transitions',
+        label: '运单扫码',  
+        screen: 'eureka.Transorders.Orderscan',
         icon: require('../img/transform.png'),
-        title: 'Navigation Transitions',
+        title: '运单扫码',
     },
 
     {
@@ -86,6 +99,8 @@ function setupItems(items){
 
     }
    });
+
+
 }
 
 

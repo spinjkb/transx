@@ -160,6 +160,7 @@ class Login extends Component {
             name='heartbeat'
             type='font-awesome'
             color='#f50' 
+            size={40}
             onPress={this.pushScreen}
          />
   

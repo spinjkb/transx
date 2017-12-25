@@ -43,45 +43,11 @@ import MasonryItem from './transitions/sharedElementTransitions/Masonry/Item';
 import Login from './auth/Login';
  
 import Transorders  from './transorders/Transorders';
+import Orderscan       from './transorders/Orderscan';
+import Transorderdetail        from './transorders/Transorderdetail';
 import Blank        from './transorders/Blank';
 
 import Qrscanner        from './qrcode/Qrscanner';
-
- 
-
- 
-   function   checkAuth(flag,fun) {
-      
-       console.log(flag)
-       if(flag ==1){
-           return fun
-       }else{
-
-
-
-            Login.prototype.tsf=function(){
-              console.log('function setted from route')
-            }
-
-            // Login.tsf()
-            // let magicn=8964
-            let  redirectfun= () => { 
-                
-                 Login.prototype.cbpush=function(){
-                      return fun
-                 }
-
-                 return  Login
-                }
-
-           console.log('--------------------------------') 
-           return redirectfun
-        // return {<Login />}
-       }
-   }
-
- 
- 
 
 
 export function registerScreens(logedflag){
@@ -116,10 +82,13 @@ export function registerScreens(logedflag){
 
   Navigation.registerComponent('app.Transorders.index', () => Transorders);
   Navigation.registerComponent('app.Transorders.blank', () => Blank);
-  Navigation.registerComponent('Qrscanner', () => Qrscanner);
-
+  Navigation.registerComponent('eureka.Transorders.Orderscan', () => Orderscan);
+ 
  
 
+
+  Navigation.registerComponent('Qrscanner', () => Qrscanner);
+ 
 
 }
 
@@ -132,3 +101,38 @@ export function registerScreenVisibilityListener() {
     didDisappear: ({screen}) => console.log(`Screen disappeared ${screen}`)
   }).register();
 }
+
+
+
+  function   checkAuth(flag,fun) {
+      
+       console.log(flag)
+       if(flag ==1){
+           return fun
+       }else{
+
+
+
+            Login.prototype.tsf=function(){
+              console.log('function setted from route')
+            }
+
+            // Login.tsf()
+            // let magicn=8964
+            let  redirectfun= () => { 
+                
+                 Login.prototype.cbpush=function(){
+                      return fun
+                 }
+
+                 return  Login
+                }
+
+           console.log('--------------------------------') 
+           return redirectfun
+        // return {<Login />}
+       }
+   }
+
+ 
+ 
