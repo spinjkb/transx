@@ -112,12 +112,7 @@ class Login extends Component {
               this.storeToken(accessToken);
  
           }
-          // else
-          // {  
-             
-          // }
            
-          // this.redirect('home');
       } else {
           //Handle error
           let error = response.status;
@@ -130,27 +125,43 @@ class Login extends Component {
     }
   }
   
- 
+  
+  pushScreen = () => {
+    this.props.navigator.push({
+      screen: 'Qrscanner',
+      title: '扫描',
+    });
+  };
   
   render() {
      return (
       <View style={styles.container}>
 
-
+      
+      
 
         <FormLabel>手机号</FormLabel>
         <FormInput   underlineColorAndroid="#112233"      onChangeText={ (text)=> this.setState({email: text})} />
         <FormLabel>密码</FormLabel>
 
         <FormInput    underlineColorAndroid="#223344"      onChangeText={ (text)=> this.setState({password: text}) } />
-         <Button
+        
+        <Button
           raised
           icon={{name: 'home', size: 16}}
           buttonStyle={{backgroundColor: 'red', borderRadius: 10}}
           onPress={this.onLoginPressed.bind(this)}
           textStyle={{textAlign: 'center'}}
-          title={`Login9`}
+          title={`Login888`}
         />
+
+         <Icon
+            raised
+            name='heartbeat'
+            type='font-awesome'
+            color='#f50' 
+            onPress={this.pushScreen}
+         />
   
     
       </View>

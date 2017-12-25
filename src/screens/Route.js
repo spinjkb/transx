@@ -45,6 +45,10 @@ import Login from './auth/Login';
 import Transorders  from './transorders/Transorders';
 import Blank        from './transorders/Blank';
 
+import Qrscanner        from './qrcode/Qrscanner';
+
+ 
+
  
    function   checkAuth(flag,fun) {
       
@@ -108,11 +112,11 @@ export function registerScreens(logedflag){
   Navigation.registerComponent('example.Transitions.SharedElementTransitions.Cards.Info', () => CardsInfo);
   Navigation.registerComponent('example.Transitions.SharedElementTransitions.Masonry', () => Masonry);
   Navigation.registerComponent('example.Transitions.SharedElementTransitions.Masonry.Item', () => MasonryItem);
-  // Navigation.registerComponent('app.Profile.Login', () => Login);
-
+ 
 
   Navigation.registerComponent('app.Transorders.index', () => Transorders);
   Navigation.registerComponent('app.Transorders.blank', () => Blank);
+  Navigation.registerComponent('Qrscanner', () => Qrscanner);
 
  
 
