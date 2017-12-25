@@ -10,8 +10,8 @@ XMLHttpRequest = GLOBAL.originalXMLHttpRequest ? GLOBAL.originalXMLHttpRequest :
 
 
  
-function   initTabs() {
-    var apptabs = [{
+function   initNavitems() {
+    var items = [{
       label: 'Navigation',
       screen: 'example.Types',
       icon: require('../img/list.png'),
@@ -25,7 +25,7 @@ function   initTabs() {
       title: 'Navigation Actions',
     },
     {
-        label: 'Transi88',
+        label: '运单扫码',
         screen: 'example.Transitions',
         icon: require('../img/transform.png'),
         title: 'Navigation Transitions',
@@ -47,16 +47,16 @@ function   initTabs() {
         title: 'Profile2',
       }
     ];
-  return apptabs 
+  return items 
 }
 
 
 
-function setupTabs(apptabs){
+function setupItems(items){
   
 
   Navigation.startTabBasedApp({
-  tabs:apptabs,
+  tabs:items,
   animationType: Platform.OS === 'ios' ? 'slide-down' : 'fade',
   tabsStyle: {
     tabBarBackgroundColor: '#003a66',
@@ -107,9 +107,9 @@ AsyncStorage.getItem("access_token")
     {
         console.log(flag)
         registerScreens(flag)
-        let apptabs=initTabs();
-        console.log(apptabs)
-        setupTabs(apptabs)
+        let items=initNavitems();
+        console.log(items)
+        setupItems(items)
 
     }
 ).done();
