@@ -11,7 +11,7 @@ import com.reactnativenavigation.NavigationApplication;
 
 
 import com.lwansbrough.RCTCamera.*;
-
+import com.zmxv.RNSound.RNSoundPackage;
 
 // import java.util.List;
 import java.util.*;
@@ -28,9 +28,12 @@ public class MainApplication extends NavigationApplication {
         // return  new RCTCameraPackage();
 
 
-        List<ReactPackage> list = new ArrayList<ReactPackage>() {{
+        List<ReactPackage> list = new ArrayList<ReactPackage>(){
+            {
                    add(new RCTCameraPackage());
-        }};
+                   add(new RNSoundPackage());
+            }
+    };
        
         return list;
       //     return null;

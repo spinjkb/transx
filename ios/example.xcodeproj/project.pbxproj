@@ -36,6 +36,8 @@
 		79D571C4B6D34DEA8919C4CB /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B1E4F9D0A4D448FAB2C4CF04 /* SimpleLineIcons.ttf */; };
 		308EBA76022D4E22885409F7 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 15476767D9E4401EBDFE847D /* Zocial.ttf */; };
 		D4152E0576564BFD81FA8570 /* libRCTCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ED03BE557544E43B1CBC71C /* libRCTCamera.a */; };
+		A833EA83BC8B441AB27CDD67 /* libRNSound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B569F8DED3F42B18CF10327 /* libRNSound.a */; };
+		77401333A5FC4A60AB3F68D7 /* libRNPlayAudio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E927D16BDFC447CBC033B92 /* libRNPlayAudio.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -269,6 +271,10 @@
 		15476767D9E4401EBDFE847D /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		07BA88F5F5274B2DBA688FD3 /* RCTCamera.xcodeproj */ = {isa = PBXFileReference; name = "RCTCamera.xcodeproj"; path = "../node_modules/react-native-camera/ios/RCTCamera.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		0ED03BE557544E43B1CBC71C /* libRCTCamera.a */ = {isa = PBXFileReference; name = "libRCTCamera.a"; path = "libRCTCamera.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		48FF97BF1B674506BFBCA00A /* RNSound.xcodeproj */ = {isa = PBXFileReference; name = "RNSound.xcodeproj"; path = "../node_modules/react-native-sound/RNSound.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		8B569F8DED3F42B18CF10327 /* libRNSound.a */ = {isa = PBXFileReference; name = "libRNSound.a"; path = "libRNSound.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		250B1A2E14E742C2A667E1FC /* RNPlayAudio.xcodeproj */ = {isa = PBXFileReference; name = "RNPlayAudio.xcodeproj"; path = "../node_modules/react-native-play-audio/ios/RNPlayAudio.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		8E927D16BDFC447CBC033B92 /* libRNPlayAudio.a */ = {isa = PBXFileReference; name = "libRNPlayAudio.a"; path = "libRNPlayAudio.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -297,6 +303,8 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				E611768FE447469DA580A4D6 /* libRNVectorIcons.a in Frameworks */,
 				D4152E0576564BFD81FA8570 /* libRCTCamera.a in Frameworks */,
+				A833EA83BC8B441AB27CDD67 /* libRNSound.a in Frameworks */,
+				77401333A5FC4A60AB3F68D7 /* libRNPlayAudio.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,6 +460,8 @@
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				1DCCBE49C0C247079BCDEF05 /* RNVectorIcons.xcodeproj */,
 				07BA88F5F5274B2DBA688FD3 /* RCTCamera.xcodeproj */,
+				48FF97BF1B674506BFBCA00A /* RNSound.xcodeproj */,
+				250B1A2E14E742C2A667E1FC /* RNPlayAudio.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -922,6 +932,8 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 			};
 			name = Debug;
@@ -942,6 +954,8 @@
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/example.app/example";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 			};

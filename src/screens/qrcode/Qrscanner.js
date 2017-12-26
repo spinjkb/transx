@@ -10,7 +10,79 @@ import {
     Animated,
     Easing
 } from 'react-native';
+
 import Camera from 'react-native-camera';
+ 
+ 
+ 
+class QrCodePage extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            moveAnim: new Animated.Value(0)
+        };
+        this.title = '扫描二维码';
+    }
+
+    componentDidMount() {
+        this.startAnimation();
+    }
+
+    startAnimation = () => {
+        this.state.moveAnim.setValue(0);
+        Animated.timing(
+            this.state.moveAnim,//初始值
+            {
+                toValue: -200,
+                duration: 1500,
+                easing: Easing.linear
+            }//结束值
+        ).start(() => this.startAnimation());//开始
+    };
+
+    onBarCodeRead = (result) => {
+           console.log(result)
+
+           var Sound = require('react-native-sound');
+           Sound.setCategory('Playback');
+           let sound = new Sound('qrcode.mp3', Sound.MAIN_BUNDLE, (error) => {
+                if (error) {
+                    console.log('failed to load the sound', error);
+                } else {
+                    sound.play(); // have to put the call to play() in the onload callback
+                }
+           });
+
+
+
+
+        this.props.navigator.pop({
+            animated: true, // does the pop have transition animation or does it happen immediately (optional)
+            animationType: 'fade', // 'fade' (for both) / 'slide-horizontal' (for android) does the pop have different transition animation (optional)
+            });
+
+    };
+
+    render() {
+        return (
+            <View style={styles.container}>
+                <Camera
+                    style={styles.preview}
+                    onBarCodeRead={this.onBarCodeRead}>
+                    <View style={styles.rectangleContainer}>
+                        <View style={styles.rectangle}/>
+                        <Animated.View style={[
+                            styles.border,
+                            {transform: [{translateY: this.state.moveAnim}]}]}/>
+                        <Text style={styles.rectangleText}>将二维码放入框内，即可自动扫描</Text>
+                    </View>
+                </Camera>
+            </View>
+        );
+    }
+}
+
 
 const styles = StyleSheet.create({
     container: {
@@ -48,53 +120,7 @@ const styles = StyleSheet.create({
     }
 });
 
-class QrCodePage extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            moveAnim: new Animated.Value(0)
-        };
-        this.title = '扫描二维码';
-    }
 
-    componentDidMount() {
-        this.startAnimation();
-    }
-
-    startAnimation = () => {
-        this.state.moveAnim.setValue(0);
-        Animated.timing(
-            this.state.moveAnim,//初始值
-            {
-                toValue: -200,
-                duration: 1500,
-                easing: Easing.linear
-            }//结束值
-        ).start(() => this.startAnimation());//开始
-    };
-
-    onBarCodeRead = (result) => {
-        console.log(result)
-    };
-
-    render() {
-        return (
-            <View style={styles.container}>
-                <Camera
-                    style={styles.preview}
-                    onBarCodeRead={this.onBarCodeRead}>
-                    <View style={styles.rectangleContainer}>
-                        <View style={styles.rectangle}/>
-                        <Animated.View style={[
-                            styles.border,
-                            {transform: [{translateY: this.state.moveAnim}]}]}/>
-                        <Text style={styles.rectangleText}>将二维码放入框内，即可自动扫描</Text>
-                    </View>
-                </Camera>
-            </View>
-        );
-    }
-}
 
 export default QrCodePage;

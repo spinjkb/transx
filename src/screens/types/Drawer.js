@@ -1,5 +1,27 @@
 import React from 'react';
-import {StyleSheet, View, Button} from 'react-native';
+import {StyleSheet, View, Button,NativeModules} from 'react-native';
+
+
+
+
+
+
+
+console.log('-------------------------------') 
+
+console.log(Button) 
+
+console.log(StyleSheet) 
+
+console.log(NativeModules) 
+
+const {DatePickerAndroid} = NativeModules;
+
+
+// .DatePickerAndroid
+
+// console.log(DatePickerAndroid.open() ) 
+
 
 class MyClass extends React.Component {
 

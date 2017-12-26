@@ -4,7 +4,9 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  Button
+  Button,
+  NativeModules,
+  abcdef8888
 } from 'react-native';
 
 import {Navigation} from 'react-native-navigation';
@@ -12,12 +14,8 @@ import Transorderdetail from './Transorderdetail'
 
 import {Icon,Divider,  FormLabel,FormInput } from 'react-native-elements';
 
-
-let navigator;
-
  
-
-
+ 
 
 const RightCustomButton = ({text}) =>
   <TouchableOpacity
@@ -73,6 +71,8 @@ export default class Orderscan extends React.Component {
 
   
    popScann = () => {
+
+     
       console.log('popScann')
    };
 
