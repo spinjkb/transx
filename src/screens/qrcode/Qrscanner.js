@@ -13,15 +13,23 @@ import {
 
 import Camera from 'react-native-camera';
  
- 
+// var Sound = require('react-native-sound');
+           
  
 class QrCodePage extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            moveAnim: new Animated.Value(0)
+            moveAnim: new Animated.Value(0),
+            Sound:require('react-native-sound'),
+            transorder_url:''
         };
+        
+        console.log(this.state)
+
+        console.log(this.props)
+
         this.title = '扫描二维码';
     }
 
@@ -41,35 +49,50 @@ class QrCodePage extends Component {
         ).start(() => this.startAnimation());//开始
     };
 
-    onBarCodeRead = (result) => {
-           console.log(result)
 
-           var Sound = require('react-native-sound');
-           Sound.setCategory('Playback');
-           let sound = new Sound('qrcode.mp3', Sound.MAIN_BUNDLE, (error) => {
+    onBarCodeRead = (e: Code) => {
+   
+
+
+    if (this.state.transorder_url.length !== 0) {
+      return undefined
+    } 
+
+    if (e && e.type === "QR_CODE" ) {
+      return this.setState({
+        transorder_url: e.data
+      }, () => {
+        
+         this.state.Sound.setCategory('Playback');
+
+         let sound = new this.state.Sound('qrcode.mp3', this.state.Sound.MAIN_BUNDLE, (error) => {
                 if (error) {
                     console.log('failed to load the sound', error);
                 } else {
-                    sound.play(); // have to put the call to play() in the onload callback
+
+                    sound.play();   
+                    console.log(e.data)
+                    this.props.onPassProp(e.data)
+                    this.props.navigator.pop({
+                          animated: true, // does the pop have transition animation or does it happen immediately (optional)
+                          animationType: 'fade', // 'fade' (for both) / 'slide-horizontal' (for android) does the pop have different transition animation (optional)
+                    });
                 }
            });
+      })
+    }  
+  }
+
+    
 
 
-
-
-        this.props.navigator.pop({
-            animated: true, // does the pop have transition animation or does it happen immediately (optional)
-            animationType: 'fade', // 'fade' (for both) / 'slide-horizontal' (for android) does the pop have different transition animation (optional)
-            });
-
-    };
-
-    render() {
+    render() { 
+    
         return (
             <View style={styles.container}>
                 <Camera
                     style={styles.preview}
-                    onBarCodeRead={this.onBarCodeRead}>
+                    onBarCodeRead={this.onBarCodeRead.bind(this) }>
                     <View style={styles.rectangleContainer}>
                         <View style={styles.rectangle}/>
                         <Animated.View style={[

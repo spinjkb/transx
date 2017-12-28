@@ -36,6 +36,14 @@ Navigation.registerComponent('CustomButton', () => RightCustomButton);
 
 export default class Orderscan extends React.Component {
 
+       constructor(props) {
+        super(props);
+        this.state = {
+            passedData:null
+        };
+    }
+
+
   static navigatorButtons = {
     rightButtons: [
       {
@@ -53,44 +61,55 @@ export default class Orderscan extends React.Component {
     this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
   }
 
-  onNavigatorEvent(event) {
-     console.log(event)
-     if(event.link==='qrscan'){
-       console.log("now scann pic!")
+ 
 
+  onNavigatorEvent(event) {
+     
+     if(event.link==='qrscan'){
+     
        this.props.navigator.push({
           screen: 'Qrscanner',
           title: '扫描',
+          passProps: {
+            onPassProp: (data) => {
+              this.setState({passedData: data})  //强制订单详情进行重新渲染.
+              this.forceUpdate()
+
+            }
+          }
        });
-
      }
-
-
   }
   
-
   
-   popScann = () => {
-
-     
-      console.log('popScann')
-   };
-
  
 
-  render() {
+  detail(orderurl){
+        
+        console.log("中文：",orderurl)
+        return (
+                    
+                    <Transorderdetail    transorder_serial={orderurl} ></Transorderdetail>
+               )
+  
+  }
+
+ render() {
     return (
       <View style={styles.container}>
-         
-        <Transorderdetail />
-      
+        <Text>
+            订单详情: 
+            {this.state.passedData } 
+        </Text> 
+          <Transorderdetail   unamx={'alex'}  transorder_serial={this.state.passedData }  ></Transorderdetail>
       </View>
     );
- }
+}
 
-  componentWillUnmount() {
+componentWillUnmount() {
     navigator = null;
   }
+
 }
 
 const styles = StyleSheet.create({
