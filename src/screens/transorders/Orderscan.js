@@ -119,6 +119,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: 'white'
   },
+  
   buttonContainer: {
     width: 48,
     height: 48,

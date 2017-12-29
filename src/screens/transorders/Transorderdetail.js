@@ -7,7 +7,12 @@
  */
 
 import React, {PureComponent} from 'react'
-import {View, Text, StyleSheet, TouchableOpacity, Image, PixelRatio} from 'react-native'
+import {View, Text, TextInput,StyleSheet, TouchableOpacity, Image, PixelRatio} from 'react-native'
+
+
+
+import {Icon,Divider, Button,FormLabel,FormInput } from 'react-native-elements';
+ 
 
 const color = {
     theme: '#06C1AE',
@@ -55,7 +60,13 @@ class Transorderdetail extends PureComponent {
         
         console.log('************************',this.props)
         const url =this.props.transorder_serial;
+        
+        if(! url){
+            console.log('##########################no url =blank ')
+            return undefined;
+        }
 
+        
         fetch(url)
           .then(res => res.json())
           .then(res => {
@@ -83,66 +94,66 @@ class Transorderdetail extends PureComponent {
 
    }
 
+
+
     render() {
         
         return (
-            <View style={styles.container}>
-                <View style={{margin:10}}>
-                   <Text style={styles.mTextColor}>
-                         
-                       
-                         
-                         
-                         {this.state.godsname} 
-                         {this.state.carno} 
-                         {this.state.startpoind} 
-                         {this.state.drivername} 
-                         {this.state.mao_zhong} 
-                         {this.state.net_zhong} 
-                         {this.state.pi_zhong} 
+            <View>
+  
 
-                    </Text>
-                </View>
+
+                <FormLabel>1货品</FormLabel>
+                 <FormInput  underlineColorAndroid="#112233" readonly     value= {this.state.godsname}   />
+
+                 <FormLabel>车牌号码</FormLabel>
+                 <FormInput  underlineColorAndroid="#112233" readonly    value= {this.state.carno}   />
+
+                 <FormLabel>司机名称</FormLabel>
+                 <FormInput  underlineColorAndroid="#112233"  readonly  value= {this.state.godsname}   />
+
+                 <FormLabel>毛重</FormLabel>
+                 <FormInput  underlineColorAndroid="#112233"  readonly  value= {this.state.mao_zhong}   />
+
+                 <FormLabel>净重</FormLabel>
+                 <FormInput  underlineColorAndroid="#112233"  readonly  value=  {this.state.net_zhong}   />
+
+                 <FormLabel>皮重</FormLabel>
+                 <FormInput  underlineColorAndroid="#FF0000"    value=  {this.state.pi_zhong}    />
+
+
+                               
+
+               
            </View>
         )
     }
 }
 
+
 const styles = StyleSheet.create({
-    container: {
+  container: {
+    flex: 1,
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
+    paddingTop: 0,
+    backgroundColor: '#ecf0f1',
+  },
 
-        flex: 1,
-        alignSelf: "stretch",
-        alignItems: 'flex-start',
-        justifyContent: 'flex-start',
-        paddingTop: 2,
-        backgroundColor: '#ecf0f1',
+  preview: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    alignItems: 'center'
+  },
+  capture: {
+    flex: 0,
+    backgroundColor: '#fff',
+    borderRadius: 5,
+    color: '#000',
+    padding: 10,
+    margin: 40
+  }
+});
 
-    },
-    
-    icon: {
-        width: 80,
-        height: 80,
-        borderRadius: 5,
-    },
-
-    rightContainer: {
-        flex: 1,
-        paddingLeft: 0,
-        paddingRight: 0,
-    },
-    price: {
-        color: color.theme
-    },
-    h1: {
-        fontSize: 15,
-        fontWeight: 'bold',
-        color: '#222222',
-    },
-    p: {
-        fontSize: 13,
-        color: '#777777',
-    },
-})
-
+ 
 export default Transorderdetail
