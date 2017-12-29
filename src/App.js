@@ -22,11 +22,11 @@ XMLHttpRequest = GLOBAL.originalXMLHttpRequest ? GLOBAL.originalXMLHttpRequest :
 
 
 
-// const intervalId = BackgroundTimer.setInterval(() => {
-//   // this will be executed every 200 ms
-//   // even when app is the the background
-//   console.log('tic');
-// }, 5000);
+const intervalId = BackgroundTimer.setInterval(() => {
+  // this will be executed every 200 ms
+  // even when app is the the background
+  console.log( new Date() );
+}, 3000);
 
 
 
