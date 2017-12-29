@@ -57,7 +57,8 @@ const intervalId = BackgroundTimer.setInterval(() => {
   console.log( new Date() );
   reportGPS();
 
-}, 5000);
+}, 30000);  //30秒上报GPS
+
 
 
 

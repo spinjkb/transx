@@ -13,7 +13,10 @@ import {Navigation} from 'react-native-navigation';
 import Transorderdetail from './Transorderdetail'
 import {Icon,Divider,  FormLabel,FormInput } from 'react-native-elements';
  
+import JPushModule from 'jpush-react-native';
 
+
+ 
 
 const RightCustomButton = ({text}) =>
   <TouchableOpacity
@@ -83,7 +86,20 @@ const RightCustomButton = ({text}) =>
   }
   
   
- 
+   componentDidMount() {
+          // 在收到点击事件之前调用此接口
+          JPushModule.notifyJSDidLoad((resultCode) => {
+              if (resultCode === 0) {
+              }
+          });
+          JPushModule.addReceiveNotificationListener((map) => {
+              console.log("alertContent: " + map.alertContent);
+              console.log("extras: " + map.extras);
+              // var extra = JSON.parse(map.extras);
+              // console.log(extra.key + ": " + extra.value);
+          });
+  }
+
 
   
 
@@ -160,6 +176,9 @@ const RightCustomButton = ({text}) =>
 }
 
 componentWillUnmount() {
+
+    JPushModule.removeReceiveCustomMsgListener();
+    JPushModule.removeReceiveNotificationListener();
     navigator = null;
   }
 

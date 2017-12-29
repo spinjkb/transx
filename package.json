@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "configureJPush": "node node_modules/jpush-react-native/JPushConfiguration.js",
     "postinstall": "node ./scripts/postinstall.js",
     "start": "watchman watch-del-all && (adb reverse tcp:8081 tcp:8081 || true) && node node_modules/react-native/local-cli/cli.js start --reset-cache",
     "xcode": "open ios/example.xcodeproj",
@@ -12,6 +13,8 @@
   },
   "dependencies": {
     "fbjs": "^0.8.16",
+    "jcore-react-native": "^1.2.2",
+    "jpush-react-native": "^2.1.6",
     "node-pre-gyp": "^0.6.39",
     "react": "^16.2.0",
     "react-native": "^0.51.0",
