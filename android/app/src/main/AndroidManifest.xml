@@ -10,7 +10,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
 
-<!--*************************高德地图-定位所需要权限*************************-->
+<!--*************************高德地图-定位所需要权限*   目前没有用到，暂时保留************************-->
     <!-- Normal Permissions 不需要运行时注册 -->
     <!--获取运营商信息，用于支持提供运营商信息相关的接口-->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
