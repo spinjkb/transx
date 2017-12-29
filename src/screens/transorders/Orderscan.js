@@ -6,22 +6,13 @@ import {
   TouchableOpacity,
   Button,
   NativeModules,
-  Alert,
-  NativeAppEventEmitter
-
+  Alert
 } from 'react-native';
 
 import {Navigation} from 'react-native-navigation';
 import Transorderdetail from './Transorderdetail'
-
 import {Icon,Divider,  FormLabel,FormInput } from 'react-native-elements';
  
-
-
-import AMapLocation from 'react-native-smart-amap-location'
-// import * as   ASMBTN from 'react-native-smart-button'
-import AppEventListenerEnhance from 'react-native-smart-app-event-listener-enhance'
-
 
 
 const RightCustomButton = ({text}) =>
@@ -34,14 +25,7 @@ const RightCustomButton = ({text}) =>
     </View>
   </TouchableOpacity>;
 
-
-
- 
-
-
-
-
-Navigation.registerComponent('CustomButton', () => RightCustomButton);
+  Navigation.registerComponent('CustomButton', () => RightCustomButton);
 
   class Orderscan extends React.Component {
 
@@ -67,37 +51,11 @@ Navigation.registerComponent('CustomButton', () => RightCustomButton);
 
 
   
-_onLocationResult = (result) => {
-
-
-        if(result.error) {
-            Alert.alert(`错误代码: ${result.error.code}, 错误信息: ${result.error.localizedDescription}`)
-        }
-        else {
-
-            console.log(`纬度 = ${result.coordinate.latitude}, 经度 = ${result.coordinate.longitude}`)
-            if(result.formattedAddress) {
-                console.log(`格式化地址 = ${result.formattedAddress}`)
-                console.log(`纬度 = ${result.coordinate.latitude}, 经度 = ${result.coordinate.longitude}`)
-            }
-        }
-}
-
-     
-
     
  
   componentWillMount() {
     navigator = this.props.navigator;
     this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
-    
-    //开启连续定位
-    // AMapLocation.startUpdatingLocation()
-
-
-    this.addAppEventListener(
-        NativeAppEventEmitter.addListener('amap.location.onLocationResult', this._onLocationResult)
-    )
   }
 
  
@@ -167,13 +125,13 @@ _onLocationResult = (result) => {
           }
       );
 
-       console.log('%c AMapLocation.init', 'background: #222; color: #bada55');
+       // console.log('%c AMapLocation.init', 'background: #222; color: #bada55');
 
-       let locationOptions={onceLocation:true,interval:5}
+       // let locationOptions={onceLocation:true,interval:5}
 
-       AMapLocation.init(locationOptions)
+       // AMapLocation.init(locationOptions)
 
-       AMapLocation.startUpdatingLocation()
+       // AMapLocation.startUpdatingLocation()
 
 }
  
@@ -208,7 +166,7 @@ componentWillUnmount() {
 }
 
 
-export default AppEventListenerEnhance(Orderscan)
+export default   Orderscan
 
 const styles = StyleSheet.create({
   container: {
