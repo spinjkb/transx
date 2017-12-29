@@ -8,7 +8,7 @@
 
 import React, {PureComponent} from 'react'
 import {View, Text, TextInput,StyleSheet, TouchableOpacity, Image, PixelRatio} from 'react-native'
-
+import { PermissionsAndroid } from 'react-native';
 
 
 import {Icon,Divider, Button,FormLabel,FormInput } from 'react-native-elements';
@@ -103,14 +103,14 @@ class Transorderdetail extends PureComponent {
   
 
 
-                <FormLabel>1货品</FormLabel>
+                <FormLabel>货品C</FormLabel>
                  <FormInput  underlineColorAndroid="#112233" readonly     value= {this.state.godsname}   />
 
                  <FormLabel>车牌号码</FormLabel>
                  <FormInput  underlineColorAndroid="#112233" readonly    value= {this.state.carno}   />
 
                  <FormLabel>司机名称</FormLabel>
-                 <FormInput  underlineColorAndroid="#112233"  readonly  value= {this.state.godsname}   />
+                 <FormInput  underlineColorAndroid="#112233"  readonly  value= {this.state.drivername}   />
 
                  <FormLabel>毛重</FormLabel>
                  <FormInput  underlineColorAndroid="#112233"  readonly  value= {this.state.mao_zhong}   />

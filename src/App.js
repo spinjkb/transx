@@ -2,23 +2,33 @@
 
 import React from 'react';
 
-import {Platform,  ActivityIndicatorIOS, AsyncStorage} from 'react-native';
+import {Platform,   DeviceEventEmitter, NativeAppEventEmitter, ActivityIndicatorIOS, AsyncStorage} from 'react-native';
 import {Navigation} from 'react-native-navigation';
 import {registerScreens, registerScreenVisibilityListener} from './screens/Route';
 
 import { Icon } from 'react-native-elements';
 
+
  
- 
 
 
+import BackgroundTimer from 'react-native-background-timer'; 
 
+
+global.Geolocation = require('Geolocation'); 
 
 console.ignoredYellowBox =['Remote debugger'];
 XMLHttpRequest = GLOBAL.originalXMLHttpRequest ? GLOBAL.originalXMLHttpRequest : GLOBAL.XMLHttpRequest;
 
 
- 
+
+// const intervalId = BackgroundTimer.setInterval(() => {
+//   // this will be executed every 200 ms
+//   // even when app is the the background
+//   console.log('tic');
+// }, 5000);
+
+
 
 // DevMenu.show();
 

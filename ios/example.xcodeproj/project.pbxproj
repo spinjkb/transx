@@ -38,6 +38,9 @@
 		D4152E0576564BFD81FA8570 /* libRCTCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ED03BE557544E43B1CBC71C /* libRCTCamera.a */; };
 		A833EA83BC8B441AB27CDD67 /* libRNSound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B569F8DED3F42B18CF10327 /* libRNSound.a */; };
 		77401333A5FC4A60AB3F68D7 /* libRNPlayAudio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E927D16BDFC447CBC033B92 /* libRNPlayAudio.a */; };
+		D9BF9B445AE54AB88CDF5322 /* libRNBackgroundTimer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E94E0EC08EA445F09E5C6D3C /* libRNBackgroundTimer.a */; };
+		78175D346CA848D2BD51AD12 /* libReactNativePermissions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C4700C0B02874B12848FAA5C /* libReactNativePermissions.a */; };
+		5775638A1D374F67B7D9CEFC /* libRCTAMapLocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD6BFB46DDDC4B3EA14194A1 /* libRCTAMapLocation.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -275,6 +278,12 @@
 		8B569F8DED3F42B18CF10327 /* libRNSound.a */ = {isa = PBXFileReference; name = "libRNSound.a"; path = "libRNSound.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		250B1A2E14E742C2A667E1FC /* RNPlayAudio.xcodeproj */ = {isa = PBXFileReference; name = "RNPlayAudio.xcodeproj"; path = "../node_modules/react-native-play-audio/ios/RNPlayAudio.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		8E927D16BDFC447CBC033B92 /* libRNPlayAudio.a */ = {isa = PBXFileReference; name = "libRNPlayAudio.a"; path = "libRNPlayAudio.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		41CAF76515FF4A0A9BDABE2A /* RNBackgroundTimer.xcodeproj */ = {isa = PBXFileReference; name = "RNBackgroundTimer.xcodeproj"; path = "../node_modules/react-native-background-timer/ios/RNBackgroundTimer.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		E94E0EC08EA445F09E5C6D3C /* libRNBackgroundTimer.a */ = {isa = PBXFileReference; name = "libRNBackgroundTimer.a"; path = "libRNBackgroundTimer.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		81E473A1C50547648ADFFAB8 /* ReactNativePermissions.xcodeproj */ = {isa = PBXFileReference; name = "ReactNativePermissions.xcodeproj"; path = "../node_modules/react-native-permissions/ios/ReactNativePermissions.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		C4700C0B02874B12848FAA5C /* libReactNativePermissions.a */ = {isa = PBXFileReference; name = "libReactNativePermissions.a"; path = "libReactNativePermissions.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		1803FF4C44A54C79A7AD9382 /* RCTAMapLocation.xcodeproj */ = {isa = PBXFileReference; name = "RCTAMapLocation.xcodeproj"; path = "../node_modules/react-native-smart-amap-location/ios/RCTAMapLocation/RCTAMapLocation.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		DD6BFB46DDDC4B3EA14194A1 /* libRCTAMapLocation.a */ = {isa = PBXFileReference; name = "libRCTAMapLocation.a"; path = "libRCTAMapLocation.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -305,6 +314,9 @@
 				D4152E0576564BFD81FA8570 /* libRCTCamera.a in Frameworks */,
 				A833EA83BC8B441AB27CDD67 /* libRNSound.a in Frameworks */,
 				77401333A5FC4A60AB3F68D7 /* libRNPlayAudio.a in Frameworks */,
+				D9BF9B445AE54AB88CDF5322 /* libRNBackgroundTimer.a in Frameworks */,
+				78175D346CA848D2BD51AD12 /* libReactNativePermissions.a in Frameworks */,
+				5775638A1D374F67B7D9CEFC /* libRCTAMapLocation.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,6 +474,9 @@
 				07BA88F5F5274B2DBA688FD3 /* RCTCamera.xcodeproj */,
 				48FF97BF1B674506BFBCA00A /* RNSound.xcodeproj */,
 				250B1A2E14E742C2A667E1FC /* RNPlayAudio.xcodeproj */,
+				41CAF76515FF4A0A9BDABE2A /* RNBackgroundTimer.xcodeproj */,
+				81E473A1C50547648ADFFAB8 /* ReactNativePermissions.xcodeproj */,
+				1803FF4C44A54C79A7AD9382 /* RCTAMapLocation.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -934,6 +949,9 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 			};
 			name = Debug;
@@ -954,6 +972,9 @@
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/example.app/example";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",

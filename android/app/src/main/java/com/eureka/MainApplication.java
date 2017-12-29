@@ -12,7 +12,7 @@ import com.reactnativenavigation.NavigationApplication;
 
 import com.lwansbrough.RCTCamera.*;
 import com.zmxv.RNSound.RNSoundPackage;
-
+import com.reactnativecomponent.amaplocation.RCTAMapLocationPackage; 
 // import java.util.List;
 import java.util.*;
 
@@ -32,6 +32,8 @@ public class MainApplication extends NavigationApplication {
             {
                    add(new RCTCameraPackage());
                    add(new RNSoundPackage());
+                   add(new RCTAMapLocationPackage());
+
             }
     };
        
