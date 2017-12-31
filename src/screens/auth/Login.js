@@ -31,6 +31,8 @@ import Profile  from '../profile/Profile';
 
 import {Separator} from 'react-native-form-generator';
 
+import  {  StoreInit } from '../../mobx/StoreOp'
+
 
 
 
@@ -130,6 +132,8 @@ class Login extends Component {
               let accessToken = res.access_token;
               this.storeToken(accessToken);
 
+              StoreInit(res);
+
               this.props.navigator.pop({
                  animated: true, // does the pop have transition animation or does it happen immediately (optional)
                  animationType: 'fade', // 'fade' (for both) / 'slide-horizontal' (for android) does the pop have different transition animation (optional)
@@ -150,7 +154,8 @@ class Login extends Component {
         this.setState({showProgress: false});
     }
   }
-  
+
+
   
   render() {
      return (

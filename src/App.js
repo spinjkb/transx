@@ -15,6 +15,12 @@ import { Icon } from 'react-native-elements';
 import BackgroundTimer from 'react-native-background-timer'; 
 
 
+
+import './config/constants'
+import  {  StoreInit } from './mobx/StoreOp'
+
+
+
 global.Geolocation = require('Geolocation'); 
 
 console.ignoredYellowBox =['Remote debugger'];
@@ -106,7 +112,8 @@ function   initNavitems() {
 
 function setupItems(items){
   
-
+  window.ConfigStore=ConfigStore
+  
   Navigation.startTabBasedApp({
   tabs:items,
   animationType: Platform.OS === 'ios' ? 'slide-down' : 'fade',
@@ -152,6 +159,8 @@ AsyncStorage.getItem("access_token")
                     console.log('已经登录')
                     return 1
                   }else{
+  
+                    // debugger
                     console.log('没有登录')
                     return 0 
                   }
@@ -160,6 +169,8 @@ AsyncStorage.getItem("access_token")
 .then( (flag) =>
     {
         console.log(flag)
+
+      
         registerScreens(flag)
         let items=initNavitems();
         console.log(items)

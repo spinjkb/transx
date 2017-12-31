@@ -54,6 +54,15 @@ export default class Announce extends React.Component{
 }
      
   }
+  
+
+  onLoginPressed(){
+      
+       alert(this)
+       console.log(ConfigStore)
+
+  }
+
 
   handleFormChange(formData){
     
@@ -78,9 +87,9 @@ export default class Announce extends React.Component{
   render(){
 
  return (
- 
-     <ScrollView>
+       <ScrollView style={styles.container}>
 
+ 
       <View style={styles.row}>
         <FormLabel  labelStyle={styles.FormLabel}   >运输计划号</FormLabel>
 
@@ -116,7 +125,7 @@ export default class Announce extends React.Component{
 
  
       <View style={styles.row}>
-        <FormLabel  labelStyle={styles.FormLabel}   >单价(顿公里)</FormLabel>
+        <FormLabel  labelStyle={styles.FormLabel}   >单价(吨公里)</FormLabel>
         <View style={styles.inputWrap}>
          <FormInput  inputStyle={styles.inputcvv}  underlineColorAndroid="#100F0E"   selectionColor="rgba(0,0,0,0.4)"   onChangeText={ (text)=> this.setState({email: text})} />
         </View>
@@ -154,8 +163,10 @@ export default class Announce extends React.Component{
      <Button
           raised
           icon={{name: 'home', size: 32}}
-          buttonStyle={{width:150,backgroundColor: 'red',marginTop:20, borderRadius: 9}}
+          buttonStyle={{width:120,height:40,backgroundColor: 'red',marginTop:20, borderRadius: 9}}
           textStyle={{textAlign: 'center'}}
+          onPress={this.onLoginPressed.bind(this)}
+
           title={`发布`}
        />
 
@@ -196,7 +207,11 @@ export default class Announce extends React.Component{
 
   },
 
-  
+  container: {
+    flex: 1,
+     paddingTop: 10,
+    backgroundColor: 'white',
+  },  
   inputcvv: {
     fontSize: 16,
     color: "#100F0E"
