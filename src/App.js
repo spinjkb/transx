@@ -52,12 +52,9 @@ function reportGPS(){
  
 
 const intervalId = BackgroundTimer.setInterval(() => {
-  // this will be executed every 200 ms
-  // even when app is the the background
   console.log( new Date() );
   reportGPS();
-
-}, 30000);  //30秒上报GPS
+}, 3000000);  //30000秒上报GPS
 
 
 
@@ -73,10 +70,10 @@ function   initNavitems() {
     }, 
 
     {
-      label: 'Actions',
-      screen: 'example.Actions',
+      label: '发布',
+      screen: 'Order.announce',
       icon: require('../img/swap.png'),
-      title: 'Navigation Actions',
+      title: '发布运输通知',
     },
 
     {
@@ -99,7 +96,7 @@ function   initNavitems() {
         label: 'Profile',
         screen: 'example.Profile',
         icon: require('../img/transform.png'),
-        title: 'Profile2',
+        title: '个人信息',
       }
     ];
   return items 
@@ -169,7 +166,11 @@ AsyncStorage.getItem("access_token")
         setupItems(items)
 
     }
-).done();
+)
+// .
+// catch(error) {
+//          console.log("error " + error);
+//  }
 
 
 

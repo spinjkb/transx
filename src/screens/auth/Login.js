@@ -14,6 +14,8 @@ import {
 } from 'react-native';
 
 
+import {Navigation, ScreenVisibilityListener} from 'react-native-navigation';
+
 
 import {Icon,Divider, Button,FormLabel,FormInput } from 'react-native-elements';
  
@@ -23,6 +25,13 @@ import {registerScreens, registerScreenVisibilityListener} from '../Route';
 import Camera from 'react-native-camera';
 
 import * as AppConstClass from '../../config/constants';
+
+import Profile  from '../profile/Profile';
+
+
+import {Separator} from 'react-native-form-generator';
+
+
 
 
 const ACCESS_TOKEN = AppConstClass.ACCESS_TOKEN;
@@ -48,11 +57,19 @@ class Login extends Component {
     this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
   }
 
-  
-  cbpush(){
-   
-    return null;
+
+
+  componentWillMount() {
+       
   }
+   
+   componentDidMount() {
+        
+         
+  }
+
+
+
 
   onNavigatorEvent(event) {
     if (event.type === 'PreviewActionPress') {
@@ -78,7 +95,9 @@ class Login extends Component {
   }
 
   async onLoginPressed() {
+
     this.setState({showProgress: true})
+    
     try {
       let response = await fetch(API_ROOT+ 'transorder/login', {
                               method: 'POST',
@@ -104,12 +123,19 @@ class Login extends Component {
           let retcode=res.code;
           this.setState({msg: res.msg});
           
-          if(retcode ==0 ){
-              Alert.alert( 'Alert Title','success' + accessToken)
 
-              registerScreens(1)
+          //登录成功
+
+          if(retcode ==0 ){
               let accessToken = res.access_token;
               this.storeToken(accessToken);
+
+              this.props.navigator.pop({
+                 animated: true, // does the pop have transition animation or does it happen immediately (optional)
+                 animationType: 'fade', // 'fade' (for both) / 'slide-horizontal' (for android) does the pop have different transition animation (optional)
+              });
+
+
  
           }
            
@@ -126,13 +152,6 @@ class Login extends Component {
   }
   
   
-  pushScreen = () => {
-    this.props.navigator.push({
-      screen: 'Qrscanner',
-      title: '扫描',
-    });
-  };
-  
   render() {
      return (
       <View style={styles.container}>
@@ -140,11 +159,14 @@ class Login extends Component {
       
       
 
-        <FormLabel>手机号</FormLabel>
-        <FormInput   underlineColorAndroid="#112233"      onChangeText={ (text)=> this.setState({email: text})} />
+        <FormLabel  labelStyle={styles.FormLabel}   >手机号</FormLabel>
+        <FormInput  inputStyle={styles.FormInput}  underlineColorAndroid="#223344"   selectionColor="rgba(0,0,0,0.4)"   onChangeText={ (text)=> this.setState({email: text})} />
+        
+        <Separator />
+
         <FormLabel>密码</FormLabel>
 
-        <FormInput    underlineColorAndroid="#223344"      onChangeText={ (text)=> this.setState({password: text}) } />
+        <FormInput    underlineColorAndroid="#223344"   selectionColor="rgba(0,0,0,0.4)"   onChangeText={ (text)=> this.setState({password: text}) } />
         
         <Button
           raised
@@ -155,14 +177,7 @@ class Login extends Component {
           title={`Login888`}
         />
 
-         <Icon
-            raised
-            name='heartbeat'
-            type='font-awesome'
-            color='#f50' 
-            size={40}
-            onPress={this.pushScreen}
-         />
+         
   
     
       </View>
@@ -184,6 +199,19 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     alignItems: 'center'
   },
+
+  FormLabel:{
+   fontSize:14,
+   color:'red',
+   fontWeight:"normal"
+  },
+
+  FormInput:{
+   fontSize:14,
+    fontWeight:"normal",
+
+  },
+  
   capture: {
     flex: 0,
     backgroundColor: '#fff',

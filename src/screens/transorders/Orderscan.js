@@ -140,15 +140,6 @@ const RightCustomButton = ({text}) =>
             alert("获取位置失败："+ error)
           }
       );
-
-       // console.log('%c AMapLocation.init', 'background: #222; color: #bada55');
-
-       // let locationOptions={onceLocation:true,interval:5}
-
-       // AMapLocation.init(locationOptions)
-
-       // AMapLocation.startUpdatingLocation()
-
 }
  
 

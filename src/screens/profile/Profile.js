@@ -22,8 +22,35 @@ const ACCESS_TOKEN = AppConstClass.ACCESS_TOKEN;
 class Profile extends React.Component {
 
 	componentWillMount() {
+  
+     // console.log(this)
+
+      this.props.navigator.push({
+          screen: 'sys_login_reg',
+          title: '登录',
+          backButtonHidden:true,
+          // passProps: {
+          //   onPassProp: (data) => {
+          //     this.setState({passedData: data})  //强制订单详情进行重新渲染.
+          //     this.forceUpdate()
+
+          //   }
+          // }
+       });
+
      
   }
+
+  componentDidMount() {
+     console.log(this)
+     if(this.tsf){
+                 this.tsf()
+     }
+  }
+
+
+
+
 
   navigate(routeName) {
     this.props.navigator.push({
@@ -46,7 +73,10 @@ class Profile extends React.Component {
     this.deleteToken();
   }
 
+  
 
+
+      
 
     
 
@@ -57,7 +87,7 @@ class Profile extends React.Component {
        
 
         <TouchableHighlight onPress= { this.onLogout.bind(this) }  style={styles.button}>
-          <Text style={styles.buttonText}>Logout?</Text>
+          <Text style={styles.buttonText}>退出登录?</Text>
         </TouchableHighlight>
       
 

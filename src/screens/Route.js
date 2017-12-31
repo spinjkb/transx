@@ -14,6 +14,7 @@ import Types from './types/NavigationTypes';
 import Actions from './actions/Actions';
 
 import Transitions from './transitions/Transitions';
+
 import Profile  from './profile/Profile';
 
  
@@ -45,17 +46,33 @@ import Login from './auth/Login';
 import Transorders  from './transorders/Transorders';
 import Orderscan       from './transorders/Orderscan';
 import Transorderdetail        from './transorders/Transorderdetail';
+import Announce        from './transorders/Announce';
+
+ 
+
+
+
 import Blank        from './transorders/Blank';
 
 import Qrscanner        from './qrcode/Qrscanner';
+
+import "babel-polyfill";
+
+
+
+console.log(Profile);
 
 
 export function registerScreens(logedflag){
 
   Navigation.registerComponent('example.Types', () => Types);
-  Navigation.registerComponent('example.Actions', () => Actions);
+  Navigation.registerComponent('Order.announce', () => Announce);
   Navigation.registerComponent('example.Transitions', () => Transitions);
-  Navigation.registerComponent('example.Profile',     checkAuth( logedflag, () => Profile ) );
+
+  // Navigation.registerComponent('example.Profile',  () => Profile );
+
+  Navigation.registerComponent('example.Profile',     checkAuth( logedflag,'example.Profile', Profile ) );
+  // Navigation.registerComponent('example.Profile',     checkAuth( logedflag,'id_111' , Login,Login ) );
  
   
   Navigation.registerComponent('example.Types.Push', () => Push);
@@ -88,7 +105,14 @@ export function registerScreens(logedflag){
 
 
   Navigation.registerComponent('Qrscanner', () => Qrscanner);
+
+
+  Navigation.registerComponent('sys_login_reg', () => Login);
+  
+  window._ROOT_NAV=Navigation
+
  
+
 
 }
 
@@ -104,35 +128,55 @@ export function registerScreenVisibilityListener() {
 
 
 
-  function   checkAuth(flag,fun) {
+
+    
+
+    function   checkAuth(flag,previous_screen,fun) {
       
        console.log(flag)
        if(flag ==1){
-           return fun
+           return  ()=>fun
        }else{
 
 
+           // let str=previous_screen
+           // fun.prototype.tsf2=function(){
+               
+           //     return str
+           //     alert(str)
+           // }
+            fun.prototype.tsf=function(){
+                    alert("tsf called ")
+                  }
 
-            Login.prototype.tsf=function(){
-              console.log('function setted from route')
-            }
 
-            // Login.tsf()
-            // let magicn=8964
-            let  redirectfun= () => { 
+            return  ()=>fun;
+            
+        //     let  redirectfun= () => { 
+
+
+        //           fun.prototype.tsf=function(){
+        //             // alert("tsf called in login")
+        //           }
+
+
+        //            let str=previous_screen
+        //            fun.prototype.tsf2=function(){
+                       
+        //                return str
+        //                alert(str)
+        //            }
                 
-                 Login.prototype.cbpush=function(){
-                      return fun
-                 }
+                  
 
-                 return  Login
-                }
 
-           console.log('--------------------------------') 
-           return redirectfun
-        // return {<Login />}
+
+        //          return  fun
+        //         }
+
+        //    console.log('--------------------------------') 
+        //    return redirectfun
+        // // return {<Login />}
        }
    }
 
- 
- 
