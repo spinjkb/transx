@@ -68,12 +68,14 @@ const intervalId = BackgroundTimer.setInterval(() => {
 // DevMenu.show();
 
 function   initNavitems() {
-    var items = [{
-      label: 'Navigation',
-      screen: 'example.Types',
-      icon: require('../img/list.png'),
-      title: 'Navigation Types',
-    }, 
+    var items = [
+
+    // {
+    //   label: 'Navigation',
+    //   screen: 'example.Types',
+    //   icon: require('../img/list.png'),
+    //   title: 'Navigation Types',
+    // }, 
 
     {
       label: '发布',
@@ -82,19 +84,19 @@ function   initNavitems() {
       title: '发布运输通知',
     },
 
-    {
-        label: '运单扫码',  
-        screen: 'eureka.Transorders.Orderscan',
-        icon: require('../img/transform.png'),
-        title: '运单扫码',
-    },
+    // {
+    //     label: '运单扫码',  
+    //     screen: 'eureka.Transorders.Orderscan',
+    //     icon: require('../img/transform.png'),
+    //     title: '运单扫码',
+    // },
 
-    {
-        label: '运单2',
-        screen: 'app.Transorders.index',
-        icon: require('../img/transform.png'),
-        title: '运单列表',
-    },
+    // {
+    //     label: '运单2',
+    //     screen: 'app.Transorders.index',
+    //     icon: require('../img/transform.png'),
+    //     title: '运单列表',
+    // },
 
  
 
@@ -104,6 +106,7 @@ function   initNavitems() {
         icon: require('../img/transform.png'),
         title: '个人信息',
       }
+      
     ];
   return items 
 }
@@ -169,8 +172,9 @@ AsyncStorage.getItem("access_token")
 .then( (flag) =>
     {
         console.log(flag)
-
-      
+        console.log(ConfigStore)
+        ConfigStore.Configs.hello="boy"
+        console.log(ConfigStore)
         registerScreens(flag)
         let items=initNavitems();
         console.log(items)

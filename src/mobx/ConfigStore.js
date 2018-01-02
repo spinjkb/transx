@@ -1,13 +1,21 @@
-import {observable} from 'mobx'
+ 
+import { observable, action } from "mobx";
 
 
 class ObservableConfigStore {
   @observable Configs ={}
 
 
-  addItem(item, value) {
+  @action addItem(item, value) {
      this.Configs[item]=value
   }
+
+  @action setItem(item, value) {
+     this.Configs[item]=value
+  }
+
+
+
 }
 
 

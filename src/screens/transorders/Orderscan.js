@@ -16,7 +16,9 @@ import {Icon,Divider,  FormLabel,FormInput } from 'react-native-elements';
 import JPushModule from 'jpush-react-native';
 
 
+
  
+
 
 const RightCustomButton = ({text}) =>
   <TouchableOpacity

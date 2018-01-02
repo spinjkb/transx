@@ -49,6 +49,7 @@ import Transorderdetail        from './transorders/Transorderdetail';
 import Announce        from './transorders/Announce';
 
  
+import DataBridge        from '../components/DataBridge';
 
 
 
@@ -69,9 +70,9 @@ export function registerScreens(logedflag){
   Navigation.registerComponent('Order.announce', () => Announce);
   Navigation.registerComponent('example.Transitions', () => Transitions);
 
-  // Navigation.registerComponent('example.Profile',  () => Profile );
+  Navigation.registerComponent('example.Profile',  () => Profile );
 
-  Navigation.registerComponent('example.Profile',     checkAuth( logedflag,'example.Profile', Profile ) );
+  // Navigation.registerComponent('example.Profile',     checkAuth( logedflag,'example.Profile', Profile ) );
   // Navigation.registerComponent('example.Profile',     checkAuth( logedflag,'id_111' , Login,Login ) );
  
   
@@ -105,7 +106,7 @@ export function registerScreens(logedflag){
 
 
   Navigation.registerComponent('Qrscanner', () => Qrscanner);
-
+  Navigation.registerComponent('DataBridge', () => DataBridge);
 
   Navigation.registerComponent('sys_login_reg', () => Login);
   

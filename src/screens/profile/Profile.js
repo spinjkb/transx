@@ -17,7 +17,8 @@ import * as AppConstClass from '../../config/constants';
 
 const ACCESS_TOKEN = AppConstClass.ACCESS_TOKEN;
 
-
+import { observer, inject } from "mobx-react";
+@observer
 
 class Profile extends React.Component {
 
@@ -89,9 +90,6 @@ class Profile extends React.Component {
         <TouchableHighlight onPress= { this.onLogout.bind(this) }  style={styles.button}>
           <Text style={styles.buttonText}>退出登录?</Text>
         </TouchableHighlight>
-      
-
-
       </View>
     );
   }
