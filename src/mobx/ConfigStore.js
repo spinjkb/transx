@@ -1,11 +1,9 @@
- 
-import { observable, action } from "mobx";
+import { observable,autorun, action } from "mobx";
 
 
-class ObservableConfigStore {
+class sysstroe {
+
   @observable Configs ={}
-
-
   @action addItem(item, value) {
      this.Configs[item]=value
   }
@@ -16,8 +14,15 @@ class ObservableConfigStore {
 
 
 
+
+
+
+
+
+
+
 }
 
 
-const observableConfigStore = new ObservableConfigStore()
-export default observableConfigStore
+const ds = new sysstroe()
+export default ds

@@ -139,17 +139,13 @@ function setupItems(items){
     forceTitlesDisplay: true
 
   }
-  ,
+    // ,drawer: {
+    //   left: {
+    //     screen: 'example.Types.Drawer'
+    //   }
+    // }
 
-    drawer: {
-      left: {
-        screen: 'example.Types.Drawer'
-      }
-
-    }
    });
-
-
 }
 
 

@@ -1,5 +1,6 @@
 'use strict';
 
+import {observable, autorun,computed} from 'mobx';
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -14,9 +15,6 @@ import {
   NativeModules,
   Alert
 } from 'react-native';
-
- 
- 
 
   class   Alist extends React.Component
 {
@@ -152,14 +150,7 @@ import {
 
 
   selectOne(index,option){
-
-    console.log(ConfigStore)
-    
-    console.log(index,option )
-    
-    window.ConfigStore=ConfigStore
-   
-    
+ 
     //取消选择 
     if( this.state.selectedIndex ==index){
 
@@ -186,11 +177,7 @@ import {
      // ConfigStore.Configs.announce.dest_text=option;
 
     }
-
  
-   
-
-    console.log(ConfigStore)
   }
 
   render() {

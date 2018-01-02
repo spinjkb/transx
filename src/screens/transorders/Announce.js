@@ -16,64 +16,54 @@ import {Navigation} from 'react-native-navigation';
  
 import {Icon,  FormLabel,FormInput } from 'react-native-elements';
   
+import {observable, autorun,computed} from 'mobx';
  
- 
- 
+import { observer } from 'mobx-react';
 
- 
-  class Announce extends React.Component {
+@observer
+class Announce extends React.Component {
 
-       constructor(props) {
+  constructor(props) {
         super(props);
         this.state = {
             passedData:null
         };
-    }
-
- 
-
-  
-    
- 
-  componentWillMount() {
-    navigator = this.props.navigator;
-    // this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
   }
 
- 
-
-  // onNavigatorEvent(event) {
-     
- 
-  // }
-  
-  
-   componentDidMount() {
-          
+  componentWillMount() {
+    navigator = this.props.navigator;
   }
 
 
    onPopPressed(){
        console.log(this.props);
-
- 
-      this.props.navigator.showModal({
+       this.props.navigator.showModal({
           screen: 'DataBridge',
-          title: '扫描'
+          title: '选择收货地点'
        });
 
   
   }
 
- 
- 
+ // @observable city =  "BJ"
 
+ 
+ @observable city = ConfigStore.Configs.hello;
 
+ 
+ _onPress = () => {
+    this.city='arrow'
+    console.log(this.city)
+    Alert.alert('change()city!'+this.city);
+    
+};
+
+ 
  render() {
     return (
       <ScrollView style={styles.container}>
 
-      <Text>   {ConfigStore.Configs.hello}</Text>
+      <Text  style={{fontSize:16}}>{this.city}</Text>
  
       <View style={styles.row}>
         <FormLabel  labelStyle={styles.FormLabel}   >运输计划号</FormLabel>
@@ -94,18 +84,11 @@ import {Icon,  FormLabel,FormInput } from 'react-native-elements';
     
       <View style={styles.row}>
         <FormLabel  labelStyle={styles.FormLabel}   >收货地点</FormLabel>
-
-         
-      
-
        <TouchableWithoutFeedback style={styles.fullWidthButton} onPress={this.onPopPressed.bind(this)}   underlayStyle={{style:'white'}}     >
-         <View  style={{ backgroundColor:"#F5F5F5",  borderColor: 'black', borderBottomWidth:1,height:40,marginLeft:20, width:225  }} >
-           
+         <View  style={{ backgroundColor:"#F5F5F5",paddingTop:15,  borderColor: 'black', borderBottomWidth:1,height:40,marginLeft:20, width:225  }} >
+          <Text  style={{fontSize:16}}>{this.city}</Text>
          </View>
-
        </TouchableWithoutFeedback>
-
-
       </View>
 
 
@@ -153,16 +136,13 @@ import {Icon,  FormLabel,FormInput } from 'react-native-elements';
 
        </View>
 
-     
- 
-
+    <Button onPress={this._onPress.bind(this)} title="bad_bind" color="blue" accessibilityLabel="Tap on Me"/>
     </ScrollView>
     );
+
+  }
 }
 
- 
-
-}
  
  export default   Announce
 
